@@ -91,9 +91,17 @@ message Person {
 
 　　 targets —>  Build Setting  —>  Search Paths  —> Header Search Paths, 写入：$(PROJECT)/protocolbuf 
 5.把转换好的person也拖入项目。
+#### 测试一下
+看代码
+![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image9.png)
+结果
+![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image10.png)
 
+数据确实非常的小。
 
+以上就是关于ProtocolBuffers的配置与使用。
 
+# GCDAsyncSocket实现即时通讯
 
 
 
