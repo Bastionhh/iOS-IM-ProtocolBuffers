@@ -40,7 +40,7 @@ package protocol;
 option java_package = "com.crossoverjie.cim.common.protocol";
 option java_outer_classname = "CIMRequestProto";
 
-message CIMReqProtocol {
+message Person {
   required int64 requestId = 2;
   required string name = 1;
   required int32 age = 3;
@@ -81,10 +81,18 @@ message CIMReqProtocol {
 ![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image2.png)
 
 #### 集成到项目中
-在自己项目工程中按照自己的习惯创建个文件
-我命名为Lib
+1. 在自己项目工程中按照自己的习惯创建个文件
+我命名为Lib->protocolbuf
+![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image8.png)
+将下载的protobuf-master中objectivec里面的几十个文件复制到此文件夹![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image3.png)
+2. Xcode打开项目，左下角+，引用protocolBuffer，注意里面有三个，我们选择ProtocolBuffers_iOS.xcodeproj![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image7.png)
+3. 选中工程: targets —>  Build Phases  —>  Link Binary With Libraries， 引用源码静态库文件：libProtocolBuffers.a![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image6.png)
+4. 在工程设置搜索静态库的头文件（pb文件在protocolbuf文件夹里面）:
 
-将下载的protobuf-master中objectivec里面的几十个文件
+　　 targets —>  Build Setting  —>  Search Paths  —> Header Search Paths, 写入：$(PROJECT)/protocolbuf 
+5.把转换好的person也拖入项目。
+
+
 
 
 
