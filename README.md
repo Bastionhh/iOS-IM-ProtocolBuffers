@@ -2,7 +2,7 @@
 iOS 集成Protocol Buffers并基于GCDAsyncSocket即时通讯。
 
 -------
-因为项目中需要自己搭建一套IM而不使环信等第三方服务，和后台伙伴讨论最后决定使用Google的[ProtocolBuffers](https://github.com/protocolbuffers/protobuf)
+因为项目中需要自己搭建一套IM而不使环信等第三方服务，和后台伙伴讨论最后决定使用Google的[ProtocolBuffers](https://github.com/protocolbuffers/protobuf)序列化聊天内容并基于GCDAsyncSocket即时通讯。
 本文主要两块内容，**配置Protocol Buffers**和**使用GCDAsyncSocket实现即时通讯**
 # 配置ProtocolBuffers
 ### 啥是ProtocolBuffers
@@ -48,7 +48,9 @@ message CIMReqProtocol {
 }
 ```
 在.proto所在目录执行
+
 `protoc --proto_path=... --objc_out=... XXX.proto`
+
 其中proto_path是我们创建的proto文件所在目录，objc_out为Objective-C文件输出路径,XXX.proto是我们创建的proto文件，可以一次转换多个proto文件，加在XXX.proto后面即可。
 
 举例：我们在src目录下新建两个文件夹 OCC 和protocols文件夹，gen为输出目录，protocols用于存放proto文件，将创建的Person.proto放在protocols文件夹下，执行命令
@@ -67,6 +69,9 @@ message CIMReqProtocol {
 `make`
 
 `make install`
+
+这几个命令后在试试。
+如果一切顺利的话，现在应该已经生成了这两个文件
 
 
 
