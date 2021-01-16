@@ -26,7 +26,7 @@ Protobuf基于自己的数据格式规范，可以转换成不同平台的数据
 
 #### 下载
 在这里[ProtocolBuffers](https://github.com/protocolbuffers/protobuf)
-#### 下载生成.proto文件->转换成Objective C文件
+#### 生成.proto文件->转换成Objective C文件
 ##### 生成.proto
 用文本编辑器新建一个文件比如叫 person.proto
 格式选择制作纯文本。
@@ -47,18 +47,12 @@ message CIMReqProtocol {
 
 }
 ```
-在.proto所在目录执行
+##### 转换成Objective C文件
 
-`protoc --proto_path=... --objc_out=... XXX.proto`
+首先环境安装
+需要HomeBrew，如果没有先安装这个。
 
-其中proto_path是我们创建的proto文件所在目录，objc_out为Objective-C文件输出路径,XXX.proto是我们创建的proto文件，可以一次转换多个proto文件，加在XXX.proto后面即可。
-
-举例：我们在src目录下新建两个文件夹 OCC 和protocols文件夹，gen为输出目录，protocols用于存放proto文件，将创建的Person.proto放在protocols文件夹下，执行命令
-
-`protoc --proto_path=protocols --objc_out=OCC protocols/Person.proto`
-然后在gen文件夹下就会生成Person.pbobjc.h和Person.pbobjc.m文件。
-
-当然有可能失败，原因可能是没有安装protoc 工具。那么需要进行一下几个步骤
+安装protoc 编译工具。那么需要进行一下几个步骤
 使用终端 cd到下载下来的protobuf-master目录
 依次执行
 
@@ -70,8 +64,27 @@ message CIMReqProtocol {
 
 `make install`
 
-这几个命令后在试试。
+如果编译顺利的话，就可以使用protoc命令将.proto文件转换为不同语言的代码。
+
+然后在.proto所在目录执行
+
+`protoc --proto_path=... --objc_out=... XXX.proto`
+
+其中proto_path是我们创建的proto文件所在目录，objc_out为Objective-C文件输出路径,XXX.proto是我们创建的proto文件，可以一次转换多个proto文件，加在XXX.proto后面即可。
+
+举例：我们在src目录下新建两个文件夹 OCC 和protocols文件夹，gen为输出目录，protocols用于存放proto文件，将创建的Person.proto放在protocols文件夹下，执行命令
+
+`protoc --proto_path=protocols --objc_out=OCC protocols/Person.proto`
+然后在gen文件夹下就会生成Person.pbobjc.h和Person.pbobjc.m文件。
+
 如果一切顺利的话，现在应该已经生成了这两个文件
+![](https://raw.githubusercontent.com/Bastionhh/iOS-IM-ProtocolBuffers/master/Image/image2.png)
+
+#### 集成到项目中
+在自己项目工程中按照自己的习惯创建个文件
+我命名为Lib
+
+将下载的protobuf-master中objectivec里面的几十个文件
 
 
 
