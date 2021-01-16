@@ -59,10 +59,15 @@ message CIMReqProtocol {
 当然有可能失败，原因可能是没有安装protoc 工具。那么需要进行一下几个步骤
 使用终端 cd到下载下来的protobuf-master目录
 依次执行
+
 `./autogen.sh`
+
 `./configure`
+
 `make`
+
 `make install`
+
 
 
 
